@@ -10,7 +10,7 @@
 <body>
 <div class="container my-4">
     <h2 class="h2">เพิ่มข้อมูลสมาชิก<a class="btn btn-primary">เพิ่มข้อมูลนักศึกษา</a></h2><hr>
-    <form action="create.php" method="post">
+    <form action="create.php" method="post" name="create_frm" onsubmit="return chkPWD(this)">
         <div class="mb-2">
             <label for="floatingInput">ชื่อ-นามสกุล</label>
             <input type="text" class="form-control" name="u_name" id="u_name"required>
@@ -46,4 +46,16 @@
     </form>
 <div>
 </body>
+<script>
+    function chkPWD(){
+        let pwd = document.getElementById("password").value
+        let cpwd= document.getElementById("c_password").value
+        if(pwd!== cpwd){
+            alert("กรุณายินยันรหัสผ่านให้ถูกต้อง")
+            return false
+        } else {
+            create_frm.submit()
+        }
+    }
+</script>
 </html>
